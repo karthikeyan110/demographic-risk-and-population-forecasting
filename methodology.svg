@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="box-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    
+    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#ff007f" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulse-box {
+      0%, 100% { stroke: #374151; }
+      50% { stroke: #00f2fe; filter: drop-shadow(0 0 3px rgba(0,242,254,0.5)); }
+    }
+    @keyframes line-flow {
+      0% { stroke-dashoffset: 20; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes fill-text {
+      0%, 100% { fill: #9ca3af; }
+      50% { fill: #ffffff; }
+    }
+    
+    .box { fill: url(#box-grad); stroke-width: 1.5; filter: url(#shadow); }
+    .flow-line { stroke: url(#line-grad); stroke-width: 2; stroke-dasharray: 6,4; animation: line-flow 1s linear infinite; }
+    .step-title { font-family: 'Outfit', 'Inter', sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; letter-spacing: 0.5px; }
+    .step-desc { font-family: 'Inter', sans-serif; font-size: 9px; fill: #9ca3af; }
+  </style>
+
+  <rect width="800" height="240" fill="#080c1e" rx="10" />
+
+  <!-- Steps Layout -->
+  
+  <!-- Arrow connectors -->
+  <line x1="160" y1="120" x2="210" y2="120" class="flow-line" />
+  <line x1="330" y1="120" x2="380" y2="120" class="flow-line" />
+  <line x1="500" y1="120" x2="550" y2="120" class="flow-line" />
+  <line x1="670" y1="120" x2="720" y2="120" class="flow-line" />
+
+  <!-- STEP 1: Data Acquisition -->
+  <g transform="translate(40, 70)">
+    <rect width="120" height="100" rx="8" class="box" style="animation: pulse-box 4s infinite ease-in-out; animation-delay: 0s;" />
+    <circle cx="60" cy="30" r="14" fill="#00f2fe" fill-opacity="0.1" stroke="#00f2fe" stroke-width="1.5" />
+    <path d="M 54 26 L 66 26 L 66 34 L 54 34 Z M 54 30 L 66 30" stroke="#00f2fe" stroke-width="1.5" fill="none" />
+    <text x="60" y="62" class="step-title" text-anchor="middle">1. DATA ACQUISITION</text>
+    <text x="60" y="77" class="step-desc" text-anchor="middle">UN WPP 2024</text>
+    <text x="60" y="87" class="step-desc" text-anchor="middle">Demographics (1950-2100)</text>
+  </g>
+
+  <!-- STEP 2: Processing & Feat. Eng. -->
+  <g transform="translate(210, 70)">
+    <rect width="120" height="100" rx="8" class="box" style="animation: pulse-box 4s infinite ease-in-out; animation-delay: 0.8s;" />
+    <circle cx="60" cy="30" r="14" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="1.5" />
+    <path d="M 52 30 Q 60 22 68 30 T 60 38 Z" stroke="#3b82f6" stroke-width="1.5" fill="none" />
+    <text x="60" y="62" class="step-title" text-anchor="middle">2. PREPROCESSING</text>
+    <text x="60" y="77" class="step-desc" text-anchor="middle">Filtering India</text>
+    <text x="60" y="87" class="step-desc" text-anchor="middle">Feature Engineering</text>
+  </g>
+
+  <!-- STEP 3: Risk Assessment -->
+  <g transform="translate(380, 70)">
+    <rect width="120" height="100" rx="8" class="box" style="animation: pulse-box 4s infinite ease-in-out; animation-delay: 1.6s;" />
+    <circle cx="60" cy="30" r="14" fill="#a855f7" fill-opacity="0.1" stroke="#a855f7" stroke-width="1.5" />
+    <path d="M 55 35 L 60 25 L 65 35 Z" stroke="#a855f7" stroke-width="1.5" fill="none" />
+    <text x="60" y="62" class="step-title" text-anchor="middle">3. RISK ASSESSMENT</text>
+    <text x="60" y="77" class="step-desc" text-anchor="middle">Composite Risk Score</text>
+    <text x="60" y="87" class="step-desc" text-anchor="middle">Aging &amp; Workforce Risk</text>
+  </g>
+
+  <!-- STEP 4: Machine Learning -->
+  <g transform="translate(550, 70)">
+    <rect width="120" height="100" rx="8" class="box" style="animation: pulse-box 4s infinite ease-in-out; animation-delay: 2.4s;" />
+    <circle cx="60" cy="30" r="14" fill="#ec4899" fill-opacity="0.1" stroke="#ec4899" stroke-width="1.5" />
+    <circle cx="55" cy="27" r="2" fill="#ec4899" />
+    <circle cx="65" cy="27" r="2" fill="#ec4899" />
+    <circle cx="60" cy="35" r="2" fill="#ec4899" />
+    <line x1="55" y1="27" x2="60" y2="35" stroke="#ec4899" stroke-width="1" />
+    <line x1="65" y1="27" x2="60" y2="35" stroke="#ec4899" stroke-width="1" />
+    <text x="60" y="62" class="step-title" text-anchor="middle">4. ML FORECASTING</text>
+    <text x="60" y="77" class="step-desc" text-anchor="middle">Prophet &amp; Random Forest</text>
+    <text x="60" y="87" class="step-desc" text-anchor="middle">Age Structure integration</text>
+  </g>
+
+  <!-- Title on top -->
+  <text x="400" y="35" font-family="'Outfit', 'Inter', sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="3" text-anchor="middle">METHODOLOGY WORKFLOW</text>
+  
+</svg>
