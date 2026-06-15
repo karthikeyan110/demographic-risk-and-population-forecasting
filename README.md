@@ -4,144 +4,451 @@
   <img src="assets/banner.svg" alt="Project Banner" width="100%">
 </p>
 
+
 <p align="center">
-  <img src="https://img.shields.io/badge/DRDO-SSPL_Delhi-blue?style=for-the-badge&logo=defense&logoColor=white" alt="DRDO SSPL">
-  <img src="https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="assets/banner.png" alt="Demographic Risk Assessment & Population Forecasting of India" width="100%">
   <img src="https://img.shields.io/badge/Data-UN_WPP_2024-green?style=for-the-badge" alt="UN Data">
   <img src="https://img.shields.io/badge/Framework-Jupyter_Notebook-orange?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter">
+  <img src ="https://img.shields.io/badge/DRDO-SSPL%20Winter%20Internship-blue?style=for-the-badge">
+
 </p>
 
----
 
-## 🌟 Interactive Documentation Companion
-We have built a premium, interactive HTML documentation companion dashboard:
-👉 **[Open Interactive Readme Dashboard (HTML)](./interactive_readme.html)**
+## Project Overview
 
-This dashboard features:
-- 🎛️ **Live Demographic Risk Simulator**: Adjust parameters (Aging, Workforce, Pressure weights) in real-time to watch the Composite Risk Index update live.
-- 📊 **Animated Forecast Models Comparison**: Interactively compare the curves for UN projections, Prophet, and Random Forest models.
-- ⚙️ **Modular Execution Guide**: Interactive workspace setup commands.
+This project was completed during my **Winter Internship at DRDO – Solid State Physics Laboratory (SSPL), New Delhi**.
+
+The study investigates India's demographic transition using the **United Nations World Population Prospects (WPP 2024)** dataset and develops machine learning-based forecasting models to analyze long-term population dynamics, aging trends, workforce sustainability, and demographic risks.
+
+The project combines demographic analysis, feature engineering, risk modeling, and machine learning to understand how India's population structure is expected to evolve from **1950 to 2100**.
 
 ---
 
-## 📖 Introduction & Objectives
+## Objectives
 
-This repository contains the source code, preprocessed datasets, compilation pipelines, and generated technical report for the project **"Demographic Risk Assessment and Population Forecasting of India Using Machine Learning and United Nations Population Data"**, conducted under the **Winter Internship Programme** at **Solid State Physics Laboratory (SSPL), Defence Research and Development Organisation (DRDO), New Delhi**.
-
-The objective of this research is two-fold:
-1. **Develop Composite Demographic Risk Indices** to evaluate India's long-term workforce viability, population aging pressure, and environmental sustainability from 1950 to 2100.
-2. **Implement and Optimize Machine Learning Models** (Prophet, Random Forest, and a specialized Random Forest with Age Structure features) to forecast future demographic transitions and evaluate the role of population momentum.
-
----
-
-## 🛠️ Methodological Workflow
-
-The project extracts data from the **United Nations World Population Prospects (WPP 2024)** medium variant dataset. It performs structural feature extraction to track demographic changes across time.
-
-<p align="center">
-  <img src="assets/methodology.svg" alt="Methodology Flowchart" width="100%">
-</p>
+* Analyze India's historical and projected population trends.
+* Study fertility decline, life expectancy growth, and demographic transition.
+* Quantify aging-related and workforce-related demographic risks.
+* Develop composite demographic risk indices.
+* Build machine learning models for long-term population forecasting.
+* Evaluate the importance of demographic indicators in future population prediction.
+* Generate policy-oriented insights for sustainable demographic planning.
 
 ---
 
-## 🧮 Composite Demographic Risk Indices
+## Datasets
 
-To analyze the strategic security and economic risk profile of India, we define four composite indexes:
+### 1. UN WPP 2024 Demographic Indicators
 
-1. **Aging Risk Index (ARI)**:
-   $$ARI = \frac{MedianAgePop}{50} \times 0.6 + \frac{ElderlyPct}{30} \times 0.4$$
-   *Measures the burden of geriatric healthcare and social security systems.*
+Contains annual demographic indicators including:
 
-2. **Workforce Risk Index (WRI)**:
-   $$WRI = 1.0 - WorkingPct$$
-   *Quantifies the contraction of the primary productive economic cohort.*
+* Total Population
+* Birth Rate (CBR)
+* Death Rate (CDR)
+* Fertility Rate (TFR)
+* Life Expectancy
+* Median Age
+* Population Growth Rate
+* Migration Statistics
 
-3. **Population Pressure Index (PPI)**:
-   $$PPI = \frac{TPopulation1July}{1,700,000} \times 0.7 + \frac{PopGrowthRate + 3}{6} \times 0.3$$
-   *Examines resources, environment, and logistical pressure limits.*
+### 2. UN WPP 2024 Population by Age Group
 
-4. **Composite Risk Score (CRS)**:
-   $$CRS = ARI \times 0.3 + WRI \times 0.4 + PPI \times 0.3$$
-   *An aggregate score of the demographic risk profile.*
+Contains population counts across:
 
----
+* Young Population (0–14 years)
+* Working Age Population (15–64 years)
+* Elderly Population (65+ years)
 
-## 🧠 Machine Learning Models & Metrics
-
-We evaluate three distinct machine learning methodologies against the United Nations cohort-component benchmark:
-
-| Model | Core Principle | MAE (Millions) | RMSE (Millions) | Key Characteristics |
-| :--- | :--- | :---: | :---: | :--- |
-| **Facebook Prophet** | Univariate Trend Extrapolation | *High* | *High* | Extrapolates historical growth without upper bounds, overestimating size. |
-| **Random Forest (Basic)** | Decision Tree Regressor on Vital Rates | 185.3 | 243.1 | Bounded by training set maximum; flatlines past historical peaks. |
-| **RF + Age Structure** | Regressor augmented with Age Cohorts | **18.7** | **24.5** | **Excellent fit**; captures demographic inertia and population momentum. |
+Used for age-structure analysis and dependency ratio computation.
 
 ---
 
-## 📂 Repository Organization & Cell Compilation
+## Methodology
 
-The notebook is divided into 25 technical sections, built dynamically from modular components to keep scripts cleaner and maintainable.
+### Workflow
 
-<details>
-<summary>📂 Click to expand the 25 Technical Sections</summary>
-
-1. **Cover Page**: Project titles, author profile, and institutional affiliation.
-2. **Certificate**: Document verification by SSPL guides.
-3. **Acknowledgement**: Appreciation to DRDO, SSPL, and UN DESA.
-4. **Abstract**: High-level study brief and key metrics.
-5. **Table of Contents**: Structured roadmap of report cells.
-6. **Introduction**: Conceptual overview of Demographic Transition Theory.
-7. **Problem Statement**: Merging ML with traditional forecasting.
-8. **Objectives**: Detailed research goals.
-9. **Literature Review**: Prior work summary (Lee-Carter, Prophet, etc.).
-10. **Dataset Description**: UN WPP columns (TFR, CBR, CDR, NetMigrations).
-11. **Methodology**: Block diagram and pipeline execution flow.
-12. **Data Preprocessing**: Scaling, clean-up, and dataset alignment.
-13. **Exploratory Data Analysis (EDA)**: Historical indicators trend charts.
-14. **Age Structure Analysis**: Historical and future five-year cohort breakdown.
-15. **Demographic Risk Assessment**: Modeling ARI, WRI, PPI, and CRS.
-16. **Population Forecasting**: Trend baseline calculations.
-17. **Machine Learning Models**: Implementation details for Prophet and Random Forest.
-18. **Model Comparison**: Metric comparison charts and prediction error.
-19. **Feature Importance**: Gini index scoring of vital rates and age brackets.
-20. **Results and Findings**: 10 primary insights of India's population trends.
-21. **Discussion**: Analysis of structural momentum and generational lags.
-22. **Limitations**: Domain boundary conditions and spatial limitations.
-23. **Future Scope**: Extensions (Bayesian forecasting, Deep learning).
-24. **Conclusion**: Strategic recommendations and summary.
-25. **References**: Academic bibliography.
-</details>
+1. Data Collection
+2. Data Cleaning & Validation
+3. Exploratory Data Analysis
+4. Demographic Feature Engineering
+5. Risk Index Construction
+6. Forecast Modeling
+7. Model Evaluation
+8. Policy Analysis
 
 ---
 
-## 🚀 How to Compile and Run
+## Exploratory Data Analysis
 
-1. **Clone the repository** and navigate to the project directory:
-   ```powershell
-   # Open your terminal in the workspace directory
-   cd "d:/DRDO 01"
-   ```
+### Population Growth Analysis
 
-2. **Initialize python environment** and install requirements:
-   ```powershell
-   pip install -r requirements.txt
-   ```
+Analyzed India's population trajectory from 1950–2100.
 
-3. **Compile the Notebook**:
-   Execute the master compilation script to assemble the modular code blocks:
-   ```powershell
-   python build_notebook.py
-   ```
-   This compiles `DRDO.ipynb` automatically.
+Key observation:
 
-4. **Run or View Output**:
-   Open the notebook in Jupyter Lab/Notebook:
-   ```powershell
-   jupyter notebook DRDO.ipynb
-   ```
-   Or simply open **`DRDO_Report.html`** or **`DRDO_Report.pdf`** to read the pre-rendered full technical report!
+* Population grows from approximately 0.35 billion in 1950
+* Peaks near 1.70 billion around 2060
+* Gradually declines afterward
 
 ---
 
-**© Defence Research and Development Organisation (DRDO) — Solid State Physics Laboratory (SSPL), New Delhi**
-*Submitted in partial fulfillment of the requirements for the DRDO-SSPL Winter Internship.*
+### Population Growth Rate Analysis
+
+Population growth rate declines continuously:
+
+* Above 2% during the 1960s–1980s
+* Around 1% near 2020
+* Approaches 0% by 2060
+* Becomes negative after 2060
+
+This indicates the completion of India's demographic transition.
+
+---
+
+### Fertility Analysis
+
+Total Fertility Rate (TFR):
+
+* ~6 children per woman in the 1950s
+* Falls below replacement level (~2.1)
+* Stabilizes near 1.7 by 2100
+
+Key Drivers:
+
+* Female education
+* Urbanization
+* Family planning access
+* Improved healthcare
+* Delayed marriages
+
+---
+
+### Life Expectancy Analysis
+
+Life expectancy increases from:
+
+* ~41 years in 1950
+* ~71 years in 2024
+* ~85 years by 2100
+
+This reflects improvements in:
+
+* Healthcare
+* Nutrition
+* Sanitation
+* Disease control
+
+---
+
+### Median Age Analysis
+
+Median age increases from:
+
+* ~20 years in 1950
+* ~28 years in 2024
+* ~48 years by 2100
+
+Implication:
+
+India gradually transitions from a young nation to an aging society.
+
+---
+
+## Age Structure Analysis
+
+The second dataset was used to create age-group aggregates.
+
+### Young Population
+
+Age Groups:
+
+* 0–4
+* 5–9
+* 10–14
+
+### Working Population
+
+Age Groups:
+
+* 15–64
+
+### Elderly Population
+
+Age Groups:
+
+* 65+
+
+---
+
+### Dependency Ratio
+
+Dependency Ratio =
+
+(Young Population + Elderly Population)
+/ Working Population
+
+Findings:
+
+* High dependency in the 1950s
+* Lowest dependency around 2030–2040
+* Increasing dependency after 2050 due to aging
+
+This highlights India's demographic dividend window.
+
+---
+
+## Demographic Risk Assessment
+
+Three custom demographic risk indices were developed.
+
+### Aging Risk Index
+
+Measures aging burden using:
+
+* Median Age
+* Elderly Population Share
+
+Represents:
+
+* Pension pressure
+* Healthcare burden
+* Elderly support requirements
+
+---
+
+### Workforce Risk Index
+
+Measures shrinking labor force risk using:
+
+* Working-age population share
+
+Represents:
+
+* Labor shortages
+* Economic productivity concerns
+
+---
+
+### Population Pressure Index
+
+Measures stress on:
+
+* Infrastructure
+* Resources
+* Urban systems
+
+Uses:
+
+* Population size
+* Growth rate
+
+---
+
+### Composite Demographic Risk Score
+
+Combines:
+
+* Aging Risk
+* Workforce Risk
+* Population Pressure
+
+into a single indicator.
+
+Key finding:
+
+India's demographic risk remains relatively low historically but rises steadily after 2030 due to population aging.
+
+---
+
+## Machine Learning Models
+
+### Model 1: Facebook Prophet
+
+Input:
+
+* Historical population data
+
+Characteristics:
+
+* Time-series forecasting
+* Trend extrapolation
+* Univariate approach
+
+Observation:
+
+Prophet continued extending historical growth trends and significantly overestimated future population.
+
+---
+
+### Model 2: Random Forest Regressor
+
+Features:
+
+* Birth Rate
+* Death Rate
+* Fertility Rate
+* Life Expectancy
+* Median Age
+* Population Growth Rate
+* Migration
+
+Observation:
+
+Performed better than Prophet but struggled to capture long-term demographic transition.
+
+---
+
+### Model 3: Random Forest + Age Structure
+
+Additional Features:
+
+* Young Population
+* Working Population
+* Elderly Population
+* Dependency Ratio
+
+Observation:
+
+Most realistic model.
+
+Age structure information allowed the model to capture:
+
+* Population momentum
+* Workforce dynamics
+* Aging transition
+
+---
+
+## Feature Importance Analysis
+
+The most influential predictors were:
+
+1. Death Rate (CDR)
+2. Fertility Rate (TFR)
+3. Birth Rate (CBR)
+4. Life Expectancy
+5. Working Population
+6. Young Population
+7. Elderly Population
+
+Key Insight:
+
+Population dynamics are primarily driven by fertility and mortality, while age structure significantly improves forecasting quality.
+
+---
+
+## Major Findings
+
+### Finding 1
+
+India's population is projected to peak around 2060.
+
+### Finding 2
+
+Population growth becomes negative after approximately 2060.
+
+### Finding 3
+
+Fertility falls below replacement level and stabilizes near 1.7.
+
+### Finding 4
+
+Life expectancy exceeds 85 years by 2100.
+
+### Finding 5
+
+Median age nearly doubles, indicating rapid aging.
+
+### Finding 6
+
+Dependency ratio rises sharply after 2050.
+
+### Finding 7
+
+Workforce growth slows significantly after 2040.
+
+### Finding 8
+
+Demographic dividend peaks around 2030–2040.
+
+### Finding 9
+
+Age structure variables substantially improve forecasting performance.
+
+### Finding 10
+
+Population aging emerges as the dominant long-term demographic challenge.
+
+---
+
+## Policy Recommendations
+
+### Workforce Development
+
+* Expand skill development programs
+* Increase labor productivity
+* Encourage workforce participation
+
+### Healthy Aging
+
+* Strengthen geriatric healthcare
+* Expand elderly care infrastructure
+* Improve pension planning
+
+### Human Capital Investment
+
+* Improve education quality
+* Promote female workforce participation
+* Enhance public healthcare
+
+### Data-Driven Governance
+
+* Build demographic monitoring systems
+* Integrate AI-based forecasting into planning
+
+---
+
+## Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Scikit-Learn
+* Prophet
+* Jupyter Notebook
+
+---
+
+## Repository Structure
+
+```text
+.
+├── DRDO.ipynb
+├── DRDO_Report.pdf
+├── README.md
+├── requirements.txt
+├── assets/
+│   ├── banner.svg
+│   └── methodology.svg
+├── WPP2024_Demographic_Indicators_Medium.csv.gz
+└── WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
+```
+
+##
+
+---
+
+## Author
+
+**Karthikeyan Pandita**
+
+B.Tech – Data Science & Business Systems
+
+DRDO–SSPL Winter Intern
+
+---
+
+## Acknowledgement
+
+This project was completed as part of the Winter Internship Programme at **Solid State Physics Laboratory (SSPL), DRDO, New Delhi**, with the objective of applying data science and machine learning techniques to demographic forecasting and strategic risk assessment.
