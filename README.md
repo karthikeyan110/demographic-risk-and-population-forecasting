@@ -13,6 +13,7 @@
 - [🎯 Objectives](#-objectives)
 - [📊 Datasets](#-datasets)
 - [🔬 Methodology](#-methodology)
+- [🧪 Validation & Reproducibility](docs/MODEL_VALIDATION.md)
 - [📈 Exploratory Data Analysis](#-exploratory-data-analysis)
 - [👥 Age Structure Analysis](#-age-structure-analysis)
 - [⚠️ Demographic Risk Assessment](#️-demographic-risk-assessment)
@@ -87,6 +88,12 @@ Used for age-structure analysis and dependency ratio computation.
 ---
 
 ## 🔬 Methodology
+
+### 🗺️ End-to-end workflow
+
+![End-to-end demographic forecasting workflow](assets/methodology.svg)
+
+The diagram summarizes the data-to-insight pipeline. The detailed validation protocol is available in [Model Validation & Reproducibility](docs/MODEL_VALIDATION.md).
 
 ### 🔄 Workflow
 
@@ -249,10 +256,9 @@ Measures stress on:
 
 ### 🧮 Composite Demographic Risk Score
 
-Combines:
-🧮 Composite Score = 👴 Aging Risk + 💼 Workforce Risk + 🏙️ Population Pressure
+The composite score combines the aging, workforce, and population-pressure components. The exact normalization, component weights, and thresholds must be documented alongside the calculation so that the score can be interpreted and reproduced. If components are simply added, verify that they are on comparable scales before interpreting the total.
 
-> 🔑 **Key finding:** India's demographic risk remains relatively **low** ✅ historically but rises **steadily** ⚠️ after **2030** due to population aging.
+> **Interpretation note:** This is a constructed analytical index, not a validated probability of demographic crisis. Any claim about a specific risk level or trend should be supported by the actual calculated series and documented assumptions.
 
 ---
 
@@ -267,7 +273,7 @@ Combines:
 - 📈 Trend extrapolation
 - 1️⃣ Univariate approach
 
-> ❌ **Observation:** Prophet continued extending historical growth trends and **significantly overestimated** future population.
+> **Reported observation:** In the original analysis, Prophet continued the historical trend and was reported to overestimate future population. Confirm this with a time-based holdout and comparable error metrics before presenting it as a model-comparison result.
 
 ---
 
@@ -282,7 +288,7 @@ Combines:
 - 📈 Population Growth Rate
 - ✈️ Migration
 
-> ⚠️ **Observation:** Performed better than Prophet but struggled to capture long-term demographic transition.
+> **Reported observation:** The original analysis described this model as an improvement over Prophet, but that comparison should be backed by MAE/RMSE on the same chronological test period.
 
 ---
 
@@ -294,7 +300,7 @@ Combines:
 - 👴 Elderly Population
 - ⚖️ Dependency Ratio
 
-> ✅ **Observation:** **Most realistic model!** 🏆
+> **Reported observation:** The original analysis considered this the most realistic model. Visual plausibility alone is not enough to establish predictive superiority; use time-aware evaluation and a baseline before claiming it performs best.
 
 Age structure information allowed the model to capture:
 - 🌊 Population momentum
@@ -318,6 +324,14 @@ The most influential predictors were:
 | 7 | Elderly Population | 👴 |
 
 > 💡 **Key Insight:** Population dynamics are primarily driven by **fertility and mortality**, while **age structure** significantly improves forecasting quality.
+
+---
+
+## 🧪 Validation & Reproducibility
+
+Forecasting claims should be evaluated with chronological or rolling-origin validation, not a random split. Report MAE and RMSE against a simple baseline on the same held-out years. Keep UN projections separate from historical estimates and this project's model predictions, and document the assumptions behind every risk index.
+
+See the full [Model Validation & Reproducibility protocol](docs/MODEL_VALIDATION.md). Metric values are intentionally not stated here unless they are generated from a reproducible evaluation run.
 
 ---
 
